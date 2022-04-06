@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plucker</title>
+</head>
+<body>
+    <h2>ID: {{ plucker_id }}</h2>
+    <h1>Points: {{ points }}</h1>
+    <form method="POST" action="/{{ plucker_id }}">
+        Kilograms of trash: <input type="text" id="amount" name="amount" placeholder="(Kg)">
+        Distance from delivery point: <input type="text" id="distance" name="distance" placeholder="(meters)">
+        <button type="submit">Submit delivery</button>
+    </form>
+</body>
+</html>

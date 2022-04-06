@@ -1,4 +1,0 @@
-DB_IP_ADDRESS = "127.0.0.1"
-
-DB_USERNAME = "root"
-DB_PASSWD = "Admin:123"
