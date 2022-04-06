@@ -1,6 +1,7 @@
 import time
 import mysql.connector
 import secrets
+from tabulate import tabulate
 
 database = mysql.connector.connect(
     host=secrets.DB_IP_ADDRESS,
@@ -40,6 +41,7 @@ while True:
     print("--------TRASH REWARD!!-------")
     print("Deliver trash..............[1]")
     print("Get points from plucker....[2]")
+    print("Show all pluckers..........[3]")
     print("Enter choice: ", end="")
     choice = input()
 
@@ -65,3 +67,15 @@ while True:
         points = read_points(plucker_id)
         if points:
             print(f"The plucker with ID {plucker_id}, has {points} points")
+
+    elif choice == "3":
+        sql = cursor.execute("SELECT * FROM pluckers ORDER BY points DESC")
+        pluckers = cursor.fetchall()
+        table = [["ID", "Points", "Date Created"]]
+
+        for plucker in pluckers:
+            table.append([plucker[0], plucker[1], plucker[2]])
+        
+        print(tabulate(table))
+
+
